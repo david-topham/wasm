@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>wasm</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.29" />
+</head>
+<body>
+	<table border='1'>
+		<tr><th align='left'>a:</th>
+		    <td><input type='text' id='ja'></td></tr>
+		<tr><th align='left'>b:</th>
+		    <td><input type='text' id='jb'></td></tr>
+		<tr><th align='left'>=</th>
+		    <td><output id='answer'> ?</output></td></tr>
+	</table>
+	<br><input type="button" value="Add" onclick="add()" /><br>
+	
+	<script src="graphics.js"></script>
+	<script>
+		function add() {
+			var a = Number(document.getElementById('ja').value);
+            var b = Number(document.getElementById('jb').value);
+            const result = Module.ccall('compute',
+                           'number',['number' ,'number'],[a,b]);
+            document.getElementById('answer').innerHTML = result;             
+			console.log(result);
+		};
+		</script>
+</body>
+</html>
