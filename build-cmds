@@ -1,0 +1,15 @@
+/usr/lib/llvm-10/bin/clang --target=wasm32 --no-standard-libraries -Wl,--export-all -Wl,--no-entry -o main.wasm main.c
+notice no standard lib
+see also main.html
+
+run from localhost:8000
+after
+python -m SimpleHTTPServer 
+
+
+The graphics example was built instead using emscripten which allows use of libc more easily
+
+
+
+
+ 
